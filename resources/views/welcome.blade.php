@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Inicio')
-@section('header', 'Inicio')
+@section('title', 'Home')
+@section('header', 'Home')
 @section('content')
 @endsection

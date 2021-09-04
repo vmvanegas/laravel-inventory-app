@@ -1,11 +1,11 @@
 @extends('layout')
-@section('title', 'Brands')
-@section('header', 'Brands')
+@section('title', 'Categories')
+@section('header', 'Categories')
 @section('content')
 <div class="row">
     <div class="col-sm-10"></div>
     <div class="col-sm-2 text-end">
-        <a href="{{route('brand.form')}}" class="btn btn-primary">New Brand</a>
+        <a href="{{route('category.form')}}" class="btn btn-primary">New Category</a>
     </div>
 </div>
 
@@ -21,17 +21,19 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Description</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach($brands as $brand)
+        @foreach($categories as $category)
         <tr>
-            <td>{{$brand->id}}</td>
-            <td>{{$brand->name}}</td>
-            <td class="text-end">
-                <a href="{{ route('brand.form',  ['id' => $brand->id]) }}" class="btn btn-warning">Edit</a>
-                <a href="{{ route('brand.delete', ['id'=>$brand->id]) }}" class="btn btn-danger">Delete</a>
+            <td>{{$category->id}}</td>
+            <td>{{$category->name}}</td>
+            <td>{{$category->description}}</td>
+            <td class="text-end" style="white-space: nowrap;">
+                <a href="{{ route('category.form',  ['id' => $category->id]) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('category.delete', ['id'=>$category->id]) }}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach

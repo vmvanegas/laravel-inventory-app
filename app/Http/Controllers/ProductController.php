@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -22,10 +23,11 @@ class ProductController extends Controller
     function form($id = null){
         $product = new Product();
         $brands = Brand::all();
+        $categories = Category::all();
         if($id != null){
             $product = Product::findOrFail($id);
         }
-        return view('product/form', ['product' => $product, 'brands' => $brands]);
+        return view('product/form', ['product' => $product, 'brands' => $brands, 'categories' => $categories]);
     }
 
     function save(Request $request){
@@ -35,7 +37,8 @@ class ProductController extends Controller
             'cost'=> 'required|numeric',
             'price'=> 'required|numeric',
             'quantity'=> 'required|numeric',
-            'brand'=> 'required|max:50',
+            'brand'=> 'required',
+            'category'=> 'required',
         ]);
 
         $product = new Product();
@@ -47,6 +50,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->quantity = $request->quantity;
         $product->brand_id = $request->brand;
+        $product->category_id = $request->category;
         $product->save();
         return redirect('/products')->with('message', 'Producto guardado');
     }

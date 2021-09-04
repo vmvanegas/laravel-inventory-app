@@ -1,11 +1,11 @@
 @extends('layout')
-@section('title', 'Productos')
-@section('header', 'Productos')
+@section('title', 'Products')
+@section('header', 'Products')
 @section('content')
 <div class="row">
     <div class="col-sm-10"></div>
     <div class="col-sm-2 text-end">
-        <a href="{{route('product.form')}}" class="btn btn-primary">Nuevo producto</a>
+        <a href="{{route('product.form')}}" class="btn btn-primary">New Product</a>
     </div>
 </div>
 
@@ -25,6 +25,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Brand</th>
+            <th>Category</th>
             <th></th>
         </tr>
     </thead>
@@ -37,9 +38,10 @@
             <td>{{$product->price}}</td>
             <td>{{$product->quantity}}</td>
             <td>{{$product->brand->name}}</td>
+            <td>{{$product->category->name}}</td>
             <td class="text-end">
-                <a href="{{ route('product.form',  ['id' => $product->id]) }}" class="btn btn-warning">Editar</a>
-                <a href="{{ route('product.delete', ['id'=>$product->id]) }}" class="btn btn-danger">Borrar</a>
+                <a href="{{ route('product.form',  ['id' => $product->id]) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('product.delete', ['id'=>$product->id]) }}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach

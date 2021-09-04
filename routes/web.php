@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\ProductController;
 use App\Models\Brand;
@@ -42,6 +43,12 @@ Route::get('brands', [BrandController::class, 'show']);
 Route::get('brand/form/{id?}', [BrandController::class, 'form'])->name('brand.form');
 Route::post('brand/save', [BrandController::class, 'save'])->name('brand.save');
 Route::get('brand/delete/{id}', [BrandController::class, 'delete'])->name('brand.delete');
+
+/* CATEGORIES */
+Route::get('categories', [CategoryController::class, 'show']);
+Route::get('category/form/{id?}', [CategoryController::class, 'form'])->name('category.form');
+Route::post('category/save', [CategoryController::class, 'save'])->name('category.save');
+Route::get('category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 
 Auth::routes();
 

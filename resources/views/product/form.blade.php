@@ -1,6 +1,6 @@
 @extends('layout')
-@section('title', $product->id? 'Actualizar producto' : 'Nuevo producto')
-@section('header', $product->id? 'Actualizar producto' : 'Nuevo producto')
+@section('title', $product->id? 'Update product' : 'New product')
+@section('header', $product->id? 'Update product' : 'New product')
 @section('content')
 
 <form action="{{ route('product.save') }}" method="post">
@@ -58,11 +58,9 @@
         <div class="col-sm-12">
             <label for="brand" class="col-sm-2 col-form-label">Brand</label>
             <select class="form-select" name="brand" aria-label="Default select example">
-                <option value="{{null}}">Select...</option>
+                <option value="{{null}}" hidden>Select...</option>
                 @foreach($brands as $brand)
-                <option value="{{$brand->id}}" 
-                    {{ $product->brand_id == $brand->id? "selected" : "" }}
-                    >{{$brand->name}}</option>
+                <option value="{{$brand->id}}" {{ $product->brand_id == $brand->id? "selected" : "" }}>{{$brand->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -73,9 +71,25 @@
         @enderror
     </div>
     <div class="row mb-3">
+        <div class="col-sm-12">
+            <label for="category" class="col-sm-2 col-form-label">Category</label>
+            <select class="form-select" name="category" aria-label="Default select example">
+                <option value="{{null}}" hidden>Select...</option>
+                @foreach($categories as $category)
+                <option value="{{$category->id}}" {{ $product->category_id == $category->id? "selected" : "" }}>{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+        @error('category')
+        <p class="text-danger">
+            {{ $message }}
+        </p>
+        @enderror
+    </div>
+    <div class="row mb-3">
         <div class="d-flex justify-content-end">
-            <a href="/products" class="btn btn-secondary m-2">Cancelar</a>
-            <button type="submit" class="btn btn-primary m-2">Guardar</button>
+            <a href="/products" class="btn btn-secondary m-2">Cancel</a>
+            <button type="submit" class="btn btn-primary m-2">Save</button>
         </div>
     </div>
 </form>

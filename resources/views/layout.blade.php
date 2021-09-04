@@ -75,19 +75,25 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">
                                 <span data-feather="home"></span>
-                                Inicio
+                                Home
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/products">
                                 <span data-feather="file"></span>
-                                Productos
+                                Products
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/brands">
                                 <span data-feather="file"></span>
-                                Marcas
+                                Brands
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/categories">
+                                <span data-feather="file"></span>
+                                Categories
                             </a>
                         </li>
                     </ul>
