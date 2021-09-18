@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\ProductController;
 use App\Models\Brand;
@@ -53,3 +54,6 @@ Route::get('category/delete/{id}', [CategoryController::class, 'delete'])->name(
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/* INVOICES */
+Route::get('/invoices', [InvoiceController::class, 'show']);
